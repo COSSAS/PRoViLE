@@ -1,0 +1,21 @@
+[project]
+name = "provile"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "langchain-community>=0.3.27",
+    "langchain-ollama>=0.3.6",
+    "openai>=1.95.0",
+    "pandas>=2.3.1",
+    "python-dotenv>=1.0.1",
+    "seaborn>=0.13.2",
+]
+
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["provile*"]
