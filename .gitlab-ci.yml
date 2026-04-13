@@ -141,8 +141,6 @@ gitlab:recommended:
   image:
     name: ghcr.io/tomwright/dasel:2-alpine
     entrypoint: [""]
-  before_script:
-    - npm config set force true
   variables:
     GIT_STRATEGY: none
     GIT_CREDENTIALS: "https://oauth2:${GL_TOKEN}@gitlab.com/cossas/provile.git"
