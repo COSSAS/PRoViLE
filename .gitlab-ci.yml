@@ -141,8 +141,11 @@ gitlab:recommended:
   image:
     name: ghcr.io/tomwright/dasel:2-alpine
     entrypoint: [""]
+  before_script:
+    - npm config set force true
   variables:
     GIT_STRATEGY: none
+    GIT_CREDENTIALS: "https://oauth2:${GL_TOKEN}@gitlab.com/cossas/provile.git"
     RECOMMENDED_SETTINGS: |
       merge_requests_enabled:
         recommended: true
@@ -255,6 +258,9 @@ find-next-release:
   image: registry.gitlab.com/just-ci/images/node:alpine
   variables:
     NPM_PACKAGES: semantic-release @semantic-release/exec
+    GIT_CREDENTIALS: "https://oauth2:${GL_TOKEN}@gitlab.com/cossas/provile.git"
+  before_script:
+    - npm config set force true
   script:
     - |
       if command -v npm >/dev/null; then
