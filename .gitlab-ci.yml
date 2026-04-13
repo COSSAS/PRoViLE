@@ -141,6 +141,8 @@ gitlab:recommended:
   image:
     name: ghcr.io/tomwright/dasel:2-alpine
     entrypoint: [""]
+  before_script:
+    - npm config set force true
   variables:
     GIT_STRATEGY: none
     RECOMMENDED_SETTINGS: |
@@ -255,6 +257,8 @@ find-next-release:
   image: registry.gitlab.com/just-ci/images/node:alpine
   variables:
     NPM_PACKAGES: semantic-release @semantic-release/exec
+  before_script:
+    - npm config set force true
   script:
     - |
       if command -v npm >/dev/null; then
